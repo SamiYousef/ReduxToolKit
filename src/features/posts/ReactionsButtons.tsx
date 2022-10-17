@@ -6,7 +6,7 @@ const reactionEmoji = {
   wow: "😲",
   heart: "❤️",
   rocket: "🚀",
-  coffee: "☕️"
+  coffee: "☕️",
 };
 
 interface IReactionsButtons {
@@ -25,9 +25,9 @@ const ReactionsButtons: React.FC<IReactionsButtons> = ({ post }) => {
         key={key}
         type="button"
         className="reactionButton"
-        onClick={() => onClickEmoji(key as ReactionType)}
+        // onClick={() => onClickEmoji(key as ReactionType)}
       >
-        {val} {post.reactions[key as ReactionType]} &nbsp;
+        {/* {val} {post.reactions[key as ReactionType]} &nbsp; */}
       </button>
     );
   });

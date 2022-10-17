@@ -1,10 +1,16 @@
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, decrement, reset, incrementByAmount } from "./counterSlice";
+import {
+  increment,
+  decrement,
+  reset,
+  incrementByAmount,
+  getCount,
+} from "./counterSlice";
 
 const Counter = () => {
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.counter.count);
+  const count: number = useSelector(getCount);
   const [incrementAmount, setIncrementAmount] = useState(0);
 
   const resetAll = () => {
@@ -20,6 +26,9 @@ const Counter = () => {
       </button>
       <button className="counterBtn" onClick={() => dispatch(decrement())}>
         -
+      </button>
+      <button className="counterBtn" onClick={resetAll}>
+        Resett
       </button>
 
       <div>

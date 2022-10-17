@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { addPost } from "./postsSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAllUers, IUser } from "../users/usersSlice";
@@ -11,9 +11,12 @@ const AddPostForm = () => {
 
   const users = useSelector(selectAllUers);
 
-  const onTitleChange = (e) => setTitle(e.target.value);
-  const onContentChange = (e) => setCotent(e.target.value);
-  const onAuthorChange = (e) => setUserId(e.target.value);
+  const onTitleChange = (e: ChangeEvent<HTMLInputElement>) =>
+    setTitle(e.target.value);
+  const onContentChange = (e: ChangeEvent<HTMLTextAreaElement>) =>
+    setCotent(e.target.value);
+  const onAuthorChange = (e: ChangeEvent<HTMLSelectElement>) =>
+    setUserId(e.target.value);
 
   const canSave = title && content && userId;
   const onSavePost = () => {
